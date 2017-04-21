@@ -1,3 +1,18 @@
 body {
 	background-color: darkorange;
 }
+
+.user-container {
+	border: 2px solid black;
+	border-radius: 5%;
+}
+
+.user-image {
+	max-height: 40px;
+	max-width: 40px;
+}
+
+.img-cont {
+	max-height: 3%;
+	max-width: 3%;
+}

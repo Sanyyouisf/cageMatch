@@ -22,12 +22,14 @@ let leftUserURl = `https://teamtreehouse.com/${leftUser}.json`;
             writeLeftUserToDom(leftUserJSON)
         });
 
-
-        //writeUserToDom function here
-
         const writeLeftUserToDom = (leftUserJSON) => {
         	let leftUserString = "";
-        	leftUserString += `Fighter One: ${leftUserJSON.name}`;
-
+        	leftUserString += `<div class="user-container">`;
+        	leftUserString += `<div>Fighter One:</div>`;
+        	leftUserString += `<div id="left-user-on-dom">${leftUserJSON.name}</div>`;
+        	leftUserString += `<div>Total Points:</div>`;
+        	leftUserString += `<div id="leftUserPoints">${leftUserJSON.points.total}</div>`;
+        	leftUserString += `<div class="img-cont"><img class="user-image" src="${leftUserJSON.gravatar_url}" alt="left user image"></div>`;
+        	leftUserString += `</div>`
         	$("#userContainerLeft").append(leftUserString);
         }
