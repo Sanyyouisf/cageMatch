@@ -1,11 +1,14 @@
-console.log("main js works");
+
 
 let leftUserJSON;
+let leftUser = $("#left-user").val();
+
+let leftUserURl = `https://teamtreehouse.com/${leftUser}.json`;
 
         const loadLeftUserJSON = function() {
             return new Promise((resolve, reject) => {
-                $.ajax("https://teamtreehouse.com/geoffwebb.json").done(function(data1) {
-                    resolve(data1);										// was resolve(data1.products);
+                $.ajax(leftUserURl).done(function(data1) {
+                    resolve(data1);										
                 }).fail((error1) => {
                     reject(error1);
                     console.log("error1", error1);
@@ -16,7 +19,15 @@ let leftUserJSON;
         loadLeftUserJSON().then((results) => {
             leftUserJSON = results;
             console.log(leftUserJSON);
+            writeLeftUserToDom(leftUserJSON)
         });
 
 
         //writeUserToDom function here
+
+        const writeLeftUserToDom = (leftUserJSON) => {
+        	let leftUserString = "";
+        	leftUserString += `Fighter One: ${leftUserJSON.name}`;
+
+        	$("#userContainerLeft").append(leftUserString);
+        }
