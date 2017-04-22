@@ -3,20 +3,19 @@ $(document).ready(() => {
 	let leftUserJSON;
 	let rightUserJSON;
 
+	$("#fight-button").click(() => {
 
-	let rightUserObject = $("#right-user").val();
-	let rightUserURl = `https://teamtreehouse.com/${rightUserObject}.json`;
+	})
 
 // LEFT USER FUNCTIONS
 
-	$("#left-user-button").click(function() {
+	$("#left-user-button").click(() => {
 		onLeftSubmit();
 	})
 
 	const onLeftSubmit = () => {
 		loadLeftUserJSON().then((results) => {
 		        leftUserJSON = results;
-		        console.log(leftUserJSON);
 		        writeLeftUserToDom(leftUserJSON);
 		    });
 	}
@@ -25,10 +24,11 @@ $(document).ready(() => {
 		let leftUserObject = $("#left-user").val();
 		let leftUserURl = `https://teamtreehouse.com/${leftUserObject}.json`;
 	    return new Promise((resolve, reject) => {
-	        $.ajax(leftUserURl).done(function(data1) {
+	        $.ajax(leftUserURl).done((data1) => {
 	            resolve(data1);
 	        }).fail((error1) => {
 	            reject(error1);
+	            alert("Looks like that username isn't recognized.");
 	            console.log("error1", error1);
 	        });
 	    });
@@ -47,14 +47,13 @@ $(document).ready(() => {
 
 // RIGHT USER FUNCTIONS
 
-	$("#right-user-button").click(function() {
+	$("#right-user-button").click(() => {
 			onRightSubmit();
 		})
 
 	const onRightSubmit = () => {
 		loadRightUserJSON().then((results) => {
 		        rightUserJSON = results;
-		        console.log(rightUserJSON);
 		        writeRightUserToDom(rightUserJSON);
 		    });
 	}
@@ -63,10 +62,11 @@ $(document).ready(() => {
 		let rightUserObject = $("#right-user").val();
 		let rightUserURl = `https://teamtreehouse.com/${rightUserObject}.json`;
 	    return new Promise((resolve, reject) => {
-	        $.ajax(rightUserURl).done(function(data2) {
+	        $.ajax(rightUserURl).done((data2) => {
 	            resolve(data2);
 	        }).fail((error2) => {
 	            reject(error2);
+	            alert("Looks like that username isn't recognized.");
 	            console.log("error2", error2);
 	        });
 	    });
