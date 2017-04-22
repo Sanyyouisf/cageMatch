@@ -3,8 +3,6 @@ $(document).ready(() => {
 	let leftUserJSON;
 	let rightUserJSON;
 
-	let leftUserObject = $("#left-user").val();
-	let leftUserURl = `https://teamtreehouse.com/${leftUserObject}.json`;
 
 	let rightUserObject = $("#right-user").val();
 	let rightUserURl = `https://teamtreehouse.com/${rightUserObject}.json`;
@@ -20,6 +18,8 @@ $(document).ready(() => {
 
 
 	const loadLeftUserJSON = () => {
+		let leftUserObject = $("#left-user").val();
+		let leftUserURl = `https://teamtreehouse.com/${leftUserObject}.json`;
 	    return new Promise((resolve, reject) => {
 	        $.ajax(leftUserURl).done(function(data1) {
 	            resolve(data1);
@@ -48,7 +48,7 @@ $(document).ready(() => {
 	    userString += `<div id="leftUserPoints">${leftUserJSON.points.total}</div>`;
 	    userString += `<div class="img-cont"><img class="user-image" src="${leftUserJSON.gravatar_url}" alt="left user image"></div>`;
 	    userString += `</div>`
-	    $("#userContainerLeft").append(userString);
+	    $("#userContainerLeft").html(userString);
 	}
 
 	const writeRightUserToDom = (rightUserJSON) => {
