@@ -97,4 +97,15 @@ $(document).ready(() => {
 	    $("#userContainerRight").html(userString);
 	}
 
+	// Promise.all([loadLeftUserJSON(), loadRightUserJSON()])	// SYNTAX FOR PROMISE ALL
+	// 	.then(function(results){
+	// 		console.log("results", results);
+	// 		results.forEach(function(ajaxCalls){
+	// 			ajaxCalls.forEach(function(dino){
+	// 				dinosaurs.push(dino);
+	// 			});
+	// 		});
+	// 		writeDOM();
+	// 	});
+
 });
