@@ -11,7 +11,7 @@ $(document).ready(() => {
 
 
 	$("#left-user-button").click(function() {
-		writeLeftUserToDom(leftUserJSON);
+		onLeftButtonClick();
 	})
 
 	$("#right-user-button").click(function() {
@@ -28,13 +28,16 @@ $(document).ready(() => {
 	            console.log("error1", error1);
 	        });
 	    });
+		writeLeftUserToDom(leftUserJSON);
 	};
 
-	loadLeftUserJSON().then((results) => {
-	        leftUserJSON = results;
-	        console.log(leftUserJSON);
-	        // writeLeftUserToDom(userJSON)
-	    });
+	const onLeftButtonClick = () => {
+		loadLeftUserJSON().then((results) => {
+		        leftUserJSON = results;
+		        console.log(leftUserJSON);
+		        writeLeftUserToDom(leftUserJSON);
+		    });
+	}
 
 	const writeLeftUserToDom = (leftUserJSON) => {
 	    let userString = "";
