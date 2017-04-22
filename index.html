@@ -7,39 +7,43 @@
 </head>
 <body>
 
-<h1>CAGE MATCH!</h1>
+	<div class="page-header">
+ 	 	<h1>CAGE MATCH! <small>Pitting Classmate Against Classmate</small></h1>
+	</div>
 
-<div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" id="left-user-button">Load User A</button>
-      </span>
-      <input type="text" class="form-control" id="left-user" placeholder="Fighter one...">
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" id="right-user" placeholder="Figher two...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" id="right-user-button">Load User B</button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+	<div class="row">
+	  <div class="col-lg-6">
+	    <div class="input-group">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="button" id="left-user-button">Load User A</button>
+	      </span>
+	      <input type="text" class="form-control" id="left-user" placeholder="Fighter one...">
+	    </div><!-- /input-group -->
+	  </div><!-- /.col-lg-6 -->
+	  <div class="col-lg-6">
+	    <div class="input-group">
+	      <input type="text" class="form-control" id="right-user" placeholder="Figher two...">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="button" id="right-user-button">Load User B</button>
+	      </span>
+	    </div><!-- /input-group -->
+	  </div><!-- /.col-lg-6 -->
+	</div><!-- /.row -->
 
-<p>geoffwebb dwaynepate krissycaron</p>
+	<p>geoffwebb dwaynepate krissycaron</p>
 
+	<input class="btn btn-lg center-block" type="button" value="Fight!!">
 
-<div id="userContainerLeft"></div>
+	<div class="container">
+		<div class="row">
+			<div id="user-container-left" class="col-md-6 user-container"><!-- User One Written Here --></div>
+			<div id="userContainerRight" class="col-md-6 user-container"><!-- User Two Written Here --></div>
+		</div>
+	</div>
 
-
-<div id="userContainerRight"></div>
-
-
-<script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script type="text/javascript" src="./javascripts/main.js"></script>
+	<script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="./javascripts/main.js"></script>
 
 </body>
 </html>

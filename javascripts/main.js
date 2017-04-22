@@ -8,6 +8,7 @@ $(document).ready(() => {
 	let rightUserURl = `https://teamtreehouse.com/${rightUserObject}.json`;
 
 // LEFT USER FUNCTIONS
+
 	$("#left-user-button").click(function() {
 		onLeftSubmit();
 	})
@@ -35,14 +36,13 @@ $(document).ready(() => {
 
 	const writeLeftUserToDom = (leftUserJSON) => {
 	    let userString = "";
-	    userString += `<div class="user-container">`;
-	    userString += `<div>Fighter One:</div>`;
-	    userString += `<div id="left-user-on-dom">${leftUserJSON.name}</div>`;
-	    userString += `<div>Total Points:</div>`;
-	    userString += `<div id="leftUserPoints">${leftUserJSON.points.total}</div>`;
-	    userString += `<div class="img-cont"><img class="user-image" src="${leftUserJSON.gravatar_url}" alt="left user image"></div>`;
-	    userString += `</div>`
-	    $("#userContainerLeft").html(userString);
+	    userString += 	`<h5>Fighter One:</h5>
+	   					<div id="left-user-on-dom">${leftUserJSON.name}</div>
+	   					<div>Total Points:</div>
+	   					<div id="leftUserPoints">${leftUserJSON.points.total}</div>
+	   					<img class="user-image" src="${leftUserJSON.gravatar_url}" alt="left user image">
+	   					`
+	    $("#user-container-left").html(userString);
 	}
 
 // RIGHT USER FUNCTIONS
@@ -74,13 +74,12 @@ $(document).ready(() => {
 
 	const writeRightUserToDom = (rightUserJSON) => {
 	    let userString = "";
-	    userString += `<div class="user-container">`;
-	    userString += `<div>Fighter Two:</div>`;
-	    userString += `<div id="right-user-on-dom">${rightUserJSON.name}</div>`;
-	    userString += `<div>Total Points:</div>`;
-	    userString += `<div id="rightUserPoints">${rightUserJSON.points.total}</div>`;
-	    userString += `<div class="img-cont"><img class="user-image" src="${rightUserJSON.gravatar_url}" alt="right user image"></div>`;
-	    userString += `</div>`
+	    userString += 	`<h5>Fighter Two:</h5>
+	    				<div id="right-user-on-dom">${rightUserJSON.name}</div>
+	    				<div>Total Points:</div>
+	    				<div id="rightUserPoints">${rightUserJSON.points.total}</div>
+	    				<img class="user-image" src="${rightUserJSON.gravatar_url}" alt="right user image"></div>
+	    				`
 	    $("#userContainerRight").html(userString);
 	}
 

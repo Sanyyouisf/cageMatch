@@ -3,8 +3,10 @@ body {
 }
 
 .user-container {
+	background-color: blue;
 	border: 2px solid black;
 	border-radius: 5%;
+	width: 25%;
 }
 
 .user-image {
@@ -15,4 +17,12 @@ body {
 .img-cont {
 	max-height: 3%;
 	max-width: 3%;
+}
+
+h6 {
+	color: blue;
+}
+
+#user-container-left {
+	width: 30%;
 }
