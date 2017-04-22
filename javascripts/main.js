@@ -4,8 +4,22 @@ $(document).ready(() => {
 	let rightUserJSON;
 
 	$("#fight-button").click(() => {
-
-	})
+		if (leftUserJSON.points.total > rightUserJSON.points.total) {
+			alert(leftUserJSON.name + " beat " + rightUserJSON.name + "!");
+			leftUserJSON.badges.forEach((each) => {
+				console.log(each.icon_url);
+			})
+		} else if (leftUserJSON.points.total < rightUserJSON.points.total) {
+			alert(rightUserJSON.name + " beat " + leftUserJSON.name + "!");
+			rightUserJSON.badges.forEach((each) => {
+				console.log(each.icon_url);
+			})
+		} else if (leftUserJSON.points.total == rightUserJSON.points.total) {
+			alert(leftUserJSON.name + " and " + rightUserJSON.name + " tied!");
+		} else {
+			alert("Have you defined both users?");
+		}
+	});
 
 // LEFT USER FUNCTIONS
 
