@@ -20,7 +20,14 @@ $(document).ready(() => {
 			alert(leftUserJSON.name + " beat " + rightUserJSON.name + "!");
 			$("#user-container-right").html("");
 			leftUserJSON.badges.forEach((each) => {
-				$("#user-container-right").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`);
+				$("#user-container-right").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
+				.animate({
+				    opacity: 0.25,
+				    left: "+=50",
+				    height: "toggle"
+				  }, 5000, function() {
+				    // Animation complete.
+				  });;
 			})
 		} else if (leftUserJSON.points.total < rightUserJSON.points.total) {
 			alert(rightUserJSON.name + " beat " + leftUserJSON.name + "!");
