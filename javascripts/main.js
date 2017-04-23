@@ -21,13 +21,13 @@ $(document).ready(() => {
 			$("#user-container-right").html("");
 			leftUserJSON.badges.forEach((each) => {
 				$("#user-container-right").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
-				.animate({
-				    opacity: 0.25,
-				    left: "+=50",
-				    height: "toggle"
-				  }, 5000, function() {
-				    // Animation complete.
-				  });;
+				.animate({							// Animation will likely get its own section
+				    width: [ "toggle", "swing" ],
+				    height: [ "toggle", "swing" ],
+				    opacity: "toggle",
+				  }, 5000, "linear", function() {
+				    $( this ).after(console.log("animation complete"));
+				  });
 			})
 		} else if (leftUserJSON.points.total < rightUserJSON.points.total) {
 			alert(rightUserJSON.name + " beat " + leftUserJSON.name + "!");
