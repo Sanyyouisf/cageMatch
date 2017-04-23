@@ -51,17 +51,18 @@ $(document).ready(() => {
 
 	$("#left-user-button").click(() => {
 		onLeftSubmit();
-	})
+	});
 
 	const onLeftSubmit = () => {
 		loadLeftUserJSON().then((results) => {
 		        leftUserJSON = results;
 		        writeLeftUserToDom(leftUserJSON);
 		    });
-	}
+	};
 
 	const loadLeftUserJSON = () => {
 		let leftUserObject = $("#left-user").val();
+		console.log(leftUserObject);
 		let leftUserURl = `https://teamtreehouse.com/${leftUserObject}.json`;
 	    return new Promise((resolve, reject) => {
 	        $.ajax(leftUserURl).done((data1) => {

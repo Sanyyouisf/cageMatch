@@ -1,25 +1,29 @@
 body {
-	background-color: lightblue;
-	padding: 2%;
+	background-color: black;
+	padding: 0 2%;
 }
 
-/*.background-image {
+.background-image {
   position: fixed;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: -999;
 
-  display: block;
-  background-image: url("");
-  width: 1200px;
-  height: 800px;
+  background-image: url("http://wallpapercave.com/wp/rYdVygB.png");
+  width: 100%;
+  height: 100%;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);
-}*/
+}
 
 .primary-button {
 
@@ -27,7 +31,6 @@ body {
 
 .user-container {
 	margin: auto;
-	/*width: 40%;*/
 }
 
 .user-for-stying {
