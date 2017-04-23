@@ -2,13 +2,36 @@ $(document).ready(() => {
 
 	let leftUserJSON;
 	let rightUserJSON;
+	
+
+	$("#load-both-users").click(() => {
+		// console.log($("#user-container-left"));
+		// if ($("#user-container-left").val() !== "" && $("#user-container-right").val() !== "") {
+		// 	console.log("both have something in them");
+		// 	// beginTheFight();
+		// } else if ($("#user-container-left").val() === "" || $("#user-container-right").val() === "") {
+		// 	console.log("left: ", $("#user-container-left").val())
+		// 	console.log("right: ", $("#user-container-right").val())
+		// 	alert("Have you entered both users?");
+		// } else {
+		// 	loadBothUsers();
+		// }
+		loadBothUsers();
+	});
 
 	$("#fight-button").click(() => {
+		beginTheFight();
+	});
+
+	const beginTheFight = () => {
+		let winnerBadgeArray = [];
 		if (leftUserJSON.points.total > rightUserJSON.points.total) {
 			alert(leftUserJSON.name + " beat " + rightUserJSON.name + "!");
 			leftUserJSON.badges.forEach((each) => {
-				console.log(each.icon_url);
+				winnerBadgeArray.push(each.icon_url);
+				$("#winner-badges").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`);
 			})
+				console.log(winnerBadgeArray);
 		} else if (leftUserJSON.points.total < rightUserJSON.points.total) {
 			alert(rightUserJSON.name + " beat " + leftUserJSON.name + "!");
 			rightUserJSON.badges.forEach((each) => {
@@ -19,7 +42,7 @@ $(document).ready(() => {
 		} else {
 			alert("Have you defined both users?");
 		}
-	});
+	};
 
 // LEFT USER FUNCTIONS
 
@@ -42,7 +65,7 @@ $(document).ready(() => {
 	            resolve(data1);
 	        }).fail((error1) => {
 	            reject(error1);
-	            alert("Looks like that username isn't recognized.");
+	            alert("Looks like User A isn't recognized.");
 	            console.log("error1", error1);
 	        });
 	    });
@@ -69,7 +92,7 @@ $(document).ready(() => {
 		loadRightUserJSON().then((results) => {
 		        rightUserJSON = results;
 		        writeRightUserToDom(rightUserJSON);
-		    });
+		});
 	}
 
 	const loadRightUserJSON = () => {
@@ -80,7 +103,7 @@ $(document).ready(() => {
 	            resolve(data2);
 	        }).fail((error2) => {
 	            reject(error2);
-	            alert("Looks like that username isn't recognized.");
+	            alert("Looks like User B isn't recognized.");
 	            console.log("error2", error2);
 	        });
 	    });
@@ -97,15 +120,16 @@ $(document).ready(() => {
 	    $("#userContainerRight").html(userString);
 	}
 
-	// Promise.all([loadLeftUserJSON(), loadRightUserJSON()])	// SYNTAX FOR PROMISE ALL
-	// 	.then(function(results){
-	// 		console.log("results", results);
-	// 		results.forEach(function(ajaxCalls){
-	// 			ajaxCalls.forEach(function(dino){
-	// 				dinosaurs.push(dino);
-	// 			});
-	// 		});
-	// 		writeDOM();
-	// 	});
+	const loadBothUsers = () => {
+		console.log("hitting loadBothUsers function");
+		Promise.all([loadLeftUserJSON(), loadRightUserJSON()])	// SYNTAX FOR PROMISE ALL
+			.then(function(results){
+				console.log("results", results);
+				leftUserJSON = results[0];
+				rightUserJSON = results[1];
+				writeLeftUserToDom(results[0]);
+				writeRightUserToDom(results[1]);
+			});
+	}
 
 });
