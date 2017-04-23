@@ -6,17 +6,22 @@ $(document).ready(() => {
 // PRIMARY BUTTON EVENTS
 
 	$("#load-both-users").click(() => {
+		resetAll();
 		loadBothUsers();
 	});
 
 	$("#reset-button").click(() => {
-		$("#user-container-right").html("");
-		$("#user-container-left").html("");
+		resetAll();
 	});
 
 	$("#fight-button").click(() => {
 		beginTheFight();
 	});
+
+	const resetAll = () => {
+		$("#user-container-right").html("");
+		$("#user-container-left").html("");
+	}
 
 // FIGHT SEQUENCE
 
@@ -26,19 +31,24 @@ $(document).ready(() => {
 			$("#user-container-right").html("");
 			leftUserJSON.badges.forEach((each) => {
 				$("#user-container-right").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
-				.animate({							// Animation will likely get its own section
-				    width: [ "toggle", "swing" ],
-				    height: [ "toggle", "swing" ],
-				    opacity: "toggle",
-				  }, 5000, "linear", function() {
-				    $( this ).after(console.log("animation complete"));
+				.animate({
+				    width: ["toggle"],
+				    height: ["toggle"],
+				  }, 2000, "linear", function() {
+				    $(this).after(console.log("animation complete"));
 				  });
 			})
 		} else if (leftUserJSON.points.total < rightUserJSON.points.total) {
 			alert(rightUserJSON.name + " beat " + leftUserJSON.name + "!");
 			$("#user-container-left").html("");
 			rightUserJSON.badges.forEach((each) => {
-				$("#user-container-left").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`);
+				$("#user-container-left").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
+				.animate({
+				    width: ["toggle"],
+				    height: ["toggle"],
+				  }, 2000, "linear", function() {
+				    $(this).after(console.log("animation complete"));
+				  });
 			})
 		} else if (leftUserJSON.points.total == rightUserJSON.points.total) {
 			alert(leftUserJSON.name + " and " + rightUserJSON.name + " tied!");
@@ -61,9 +71,8 @@ $(document).ready(() => {
 	};
 
 	const loadLeftUserJSON = () => {
-		let leftUserObject = $("#left-user").val();
-		console.log(leftUserObject);
-		let leftUserURl = `https://teamtreehouse.com/${leftUserObject}.json`;
+		let leftUserInput = $("#left-user").val();
+		let leftUserURl = `https://teamtreehouse.com/${leftUserInput}.json`;
 	    return new Promise((resolve, reject) => {
 	        $.ajax(leftUserURl).done((data1) => {
 	            resolve(data1);
@@ -102,8 +111,8 @@ $(document).ready(() => {
 	}
 
 	const loadRightUserJSON = () => {
-		let rightUserObject = $("#right-user").val();
-		let rightUserURl = `https://teamtreehouse.com/${rightUserObject}.json`;
+		let rightUserInput = $("#right-user").val();
+		let rightUserURl = `https://teamtreehouse.com/${rightUserInput}.json`;
 	    return new Promise((resolve, reject) => {
 	        $.ajax(rightUserURl).done((data2) => {
 	            resolve(data2);
