@@ -1,5 +1,6 @@
 body {
 	background-color: lightblue;
+	padding: 2%;
 }
 
 /*.background-image {
@@ -20,16 +21,26 @@ body {
   filter: blur(5px);
 }*/
 
+.primary-button {
+
+}
 
 .user-container {
+	margin: auto;
+	/*width: 40%;*/
+}
+
+.user-for-stying {
+	padding: 3%;
+	border-radius: 100%;
 	border: 2px solid black;
-	border-radius: 5%;
-	width: 40%;
+	text-align: center;
 }
 
 .user-image {
-	max-height: 40px;
-	max-width: 40px;
+	max-height: 200px;
+	max-width: 200px;
+	border-radius: 100%;
 }
 
 .img-cont {

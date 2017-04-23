@@ -9,6 +9,11 @@ $(document).ready(() => {
 		loadBothUsers();
 	});
 
+	$("#reset-button").click(() => {
+		$("#user-container-right").html("");
+		$("#user-container-left").html("");
+	});
+
 	$("#fight-button").click(() => {
 		beginTheFight();
 	});
@@ -71,11 +76,13 @@ $(document).ready(() => {
 
 	const writeLeftUserToDom = (leftUserJSON) => {
 	    let userString = "";
-	    userString += 	`<h5>Fighter One:</h5>
-	   					<div id="left-user-on-dom">${leftUserJSON.name}</div>
-	   					<div>Total Points:</div>
-	   					<div id="leftUserPoints">${leftUserJSON.points.total}</div>
+	    userString += 	`<div class="user-for-stying">
+	    				<h2>Fighter One:</h2>
+	   					<h3 id="left-user-on-dom">${leftUserJSON.name}</h3>
+	   					<h3>Total Points:</h3>
+	   					<h3 id="leftUserPoints">${leftUserJSON.points.total}</h3>
 	   					<img class="user-image" src="${leftUserJSON.gravatar_url}" alt="left user image">
+	   					</div>
 	   					`
 	    $("#user-container-left").html(userString);
 	}
@@ -109,11 +116,13 @@ $(document).ready(() => {
 
 	const writeRightUserToDom = (rightUserJSON) => {
 	    let userString = "";
-	    userString += 	`<h5>Fighter Two:</h5>
-	    				<div id="right-user-on-dom">${rightUserJSON.name}</div>
-	    				<div>Total Points:</div>
-	    				<div id="rightUserPoints">${rightUserJSON.points.total}</div>
-	    				<img class="user-image" src="${rightUserJSON.gravatar_url}" alt="right user image"></div>
+	    userString += 	`<div class="user-for-stying">
+	    				<h2>Fighter Two:</h2>
+	    				<h3 id="right-user-on-dom">${rightUserJSON.name}</h3>
+	    				<h2>Total Points:</h2>
+	    				<h3 id="rightUserPoints">${rightUserJSON.points.total}</h3>
+	    				<img class="user-image" src="${rightUserJSON.gravatar_url}" alt="right user image">
+	    				</div>
 	    				`
 	    $("#user-container-right").html(userString);
 	}
