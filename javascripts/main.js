@@ -2,20 +2,10 @@ $(document).ready(() => {
 
 	let leftUserJSON;
 	let rightUserJSON;
-	
+
+// PRIMARY BUTTON EVENTS
 
 	$("#load-both-users").click(() => {
-		// console.log($("#user-container-left"));
-		// if ($("#user-container-left").val() !== "" && $("#user-container-right").val() !== "") {
-		// 	console.log("both have something in them");
-		// 	// beginTheFight();
-		// } else if ($("#user-container-left").val() === "" || $("#user-container-right").val() === "") {
-		// 	console.log("left: ", $("#user-container-left").val())
-		// 	console.log("right: ", $("#user-container-right").val())
-		// 	alert("Have you entered both users?");
-		// } else {
-		// 	loadBothUsers();
-		// }
 		loadBothUsers();
 	});
 
@@ -23,19 +13,20 @@ $(document).ready(() => {
 		beginTheFight();
 	});
 
+// FIGHT SEQUENCE
+
 	const beginTheFight = () => {
-		let winnerBadgeArray = [];
 		if (leftUserJSON.points.total > rightUserJSON.points.total) {
 			alert(leftUserJSON.name + " beat " + rightUserJSON.name + "!");
+			$("#user-container-right").html("");
 			leftUserJSON.badges.forEach((each) => {
-				winnerBadgeArray.push(each.icon_url);
-				$("#winner-badges").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`);
+				$("#user-container-right").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`);
 			})
-				console.log(winnerBadgeArray);
 		} else if (leftUserJSON.points.total < rightUserJSON.points.total) {
 			alert(rightUserJSON.name + " beat " + leftUserJSON.name + "!");
+			$("#user-container-left").html("");
 			rightUserJSON.badges.forEach((each) => {
-				console.log(each.icon_url);
+				$("#user-container-left").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`);
 			})
 		} else if (leftUserJSON.points.total == rightUserJSON.points.total) {
 			alert(leftUserJSON.name + " and " + rightUserJSON.name + " tied!");
@@ -117,14 +108,12 @@ $(document).ready(() => {
 	    				<div id="rightUserPoints">${rightUserJSON.points.total}</div>
 	    				<img class="user-image" src="${rightUserJSON.gravatar_url}" alt="right user image"></div>
 	    				`
-	    $("#userContainerRight").html(userString);
+	    $("#user-container-right").html(userString);
 	}
 
 	const loadBothUsers = () => {
-		console.log("hitting loadBothUsers function");
-		Promise.all([loadLeftUserJSON(), loadRightUserJSON()])	// SYNTAX FOR PROMISE ALL
+		Promise.all([loadLeftUserJSON(), loadRightUserJSON()])
 			.then(function(results){
-				console.log("results", results);
 				leftUserJSON = results[0];
 				rightUserJSON = results[1];
 				writeLeftUserToDom(results[0]);
