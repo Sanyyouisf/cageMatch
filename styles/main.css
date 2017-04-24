@@ -3,6 +3,12 @@ body {
 	padding: 2%;
 }
 
+@font-face {
+  font-family: streetfighter;
+  src: url(./styles/streetfighter.ttf);
+  font-weight: 300;
+}
+
 h1 {
 	font-family: streetfighter, Zapfino, arial, sans-serif;
 	font-size: 3em;
@@ -11,14 +17,9 @@ h1 {
 	font-weight: bolder;
 }
 
-@font-face {
-  font-family: streetfighter;
-  src: url(./styles/streetfighter.ttf);
-  font-weight: 300;
-}
-
-.button-div {
-	width: 100%;
+#button-div {
+	width: 400px;
+	margin: 0 auto;
 }
 
 .primary-button {
