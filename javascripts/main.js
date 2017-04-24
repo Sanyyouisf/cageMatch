@@ -21,6 +21,7 @@ $(document).ready(() => {
 	const resetAll = () => {
 		$("#user-container-right").html("");
 		$("#user-container-left").html("");
+		$("#winner-badges").html("");
 	}
 
 // FIGHT SEQUENCE
@@ -30,7 +31,7 @@ $(document).ready(() => {
 			alert(leftUserJSON.name + " beat " + rightUserJSON.name + "!");
 			$("#user-container-right").html("");
 			leftUserJSON.badges.forEach((each) => {
-				$("#user-container-right").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
+				$("#winner-badges").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
 				.animate({
 				    width: ["toggle"],
 				    height: ["toggle"],
@@ -42,7 +43,7 @@ $(document).ready(() => {
 			alert(rightUserJSON.name + " beat " + leftUserJSON.name + "!");
 			$("#user-container-left").html("");
 			rightUserJSON.badges.forEach((each) => {
-				$("#user-container-left").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
+				$("#winner-badges").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
 				.animate({
 				    width: ["toggle"],
 				    height: ["toggle"],
