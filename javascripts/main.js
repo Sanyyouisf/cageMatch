@@ -88,10 +88,10 @@ $(document).ready(() => {
 	const writeLeftUserToDom = (leftUserJSON) => {
 	    let userString = "";
 	    userString += 	`<div class="user-for-stying">
-	    				<h2>Fighter One:</h2>
-	   					<h3 id="left-user-on-dom">${leftUserJSON.name}</h3>
+	    				<h3>Fighter One:</h3>
+	   					<h2 id="left-user-on-dom">${leftUserJSON.name}</h2>
 	   					<h3>Total Points:</h3>
-	   					<h3 id="leftUserPoints">${leftUserJSON.points.total}</h3>
+	   					<h2 id="leftUserPoints">${leftUserJSON.points.total}</h2>
 	   					<img class="user-image" src="${leftUserJSON.gravatar_url}" alt="left user image">
 	   					</div>
 	   					`;
@@ -128,10 +128,10 @@ $(document).ready(() => {
 	const writeRightUserToDom = (rightUserJSON) => {
 	    let userString = "";
 	    userString += 	`<div class="user-for-stying">
-	    				<h2>Fighter Two:</h2>
-	    				<h3 id="right-user-on-dom">${rightUserJSON.name}</h3>
-	    				<h2>Total Points:</h2>
-	    				<h3 id="rightUserPoints">${rightUserJSON.points.total}</h3>
+	    				<h3>Fighter Two:</h3>
+	    				<h2 id="right-user-on-dom">${rightUserJSON.name}</h2>
+	    				<h3>Total Points:</h3>
+	    				<h2 id="rightUserPoints">${rightUserJSON.points.total}</h2>
 	    				<img class="user-image" src="${rightUserJSON.gravatar_url}" alt="right user image">
 	    				</div>
 	    				`;

@@ -5,16 +5,20 @@ body {
 
 @font-face {
   font-family: streetfighter;
-  src: url(./styles/streetfighter.ttf);
+  src: url(./streetfighter.ttf);
   font-weight: 300;
 }
 
-h1 {
+h1, h2 {
 	font-family: streetfighter, Zapfino, arial, sans-serif;
 	font-size: 3em;
 	text-shadow: 1px 1px 2px #C00000, 0 0 2em #FFD675, 0 0 0.2em white;
 	color: #FFD675;
 	font-weight: bolder;
+}
+
+h2 {
+	font-size: 2em;
 }
 
 #button-div {
