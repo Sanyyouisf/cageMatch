@@ -3,29 +3,19 @@ body {
 	padding: 0 2%;
 }
 
-.background-image {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: -999;
-
-  /*background-image: url("https://s-media-cache-ak0.pinimg.com/originals/52/60/db/5260dbc1bad2db6fc87c7af1e6da98ef.jpg");*/
-  width: 100%;
-  height: 100%;
-
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
-/*  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  filter: blur(1px);*/
-
+h1 {
+	font-family: streetfighter, Zapfino, arial, sans-serif;
+	font-size: 3em;
+	text-shadow: 1px 1px 2px #C00000, 0 0 1em #FFD675, 0 0 0.2em white;
+	color: #FFD675;
+	font-weight: bolder;
 }
 
+@font-face {
+  font-family: streetfighter;
+  src: url(styles/streetfighter.ttf);
+  font-weight: 300;
+}
 
 .primary-button {
 
@@ -37,7 +27,7 @@ body {
 }
 
 .user-for-stying {
-	background: rgba(192, 0, 0, 0.5);;
+	background: rgba(192, 0, 0, 0.7);;
 	padding: 3%;
 	border-radius: 100%;
 	border: 4px solid #FFF;
