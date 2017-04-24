@@ -22,7 +22,7 @@ $(document).ready(() => {
 		$("#user-container-right").html("");
 		$("#user-container-left").html("");
 		$("#winner-badges").html("");
-	}
+	};
 
 // FIGHT SEQUENCE
 
@@ -38,7 +38,7 @@ $(document).ready(() => {
 				  }, 2000, "linear", function() {
 				    $(this).after(console.log("animation complete"));
 				  });
-			})
+			});
 		} else if (leftUserJSON.points.total < rightUserJSON.points.total) {
 			alert(rightUserJSON.name + " beat " + leftUserJSON.name + "!");
 			$("#user-container-left").html("");
@@ -50,7 +50,7 @@ $(document).ready(() => {
 				  }, 2000, "linear", function() {
 				    $(this).after(console.log("animation complete"));
 				  });
-			})
+			});
 		} else if (leftUserJSON.points.total == rightUserJSON.points.total) {
 			alert(leftUserJSON.name + " and " + rightUserJSON.name + " tied!");
 		} else {
@@ -94,22 +94,22 @@ $(document).ready(() => {
 	   					<h3 id="leftUserPoints">${leftUserJSON.points.total}</h3>
 	   					<img class="user-image" src="${leftUserJSON.gravatar_url}" alt="left user image">
 	   					</div>
-	   					`
+	   					`;
 	    $("#user-container-left").html(userString);
-	}
+	};
 
 // RIGHT USER FUNCTIONS
 
 	$("#right-user-button").click(() => {
 			onRightSubmit();
-		})
+		});
 
 	const onRightSubmit = () => {
 		loadRightUserJSON().then((results) => {
 		        rightUserJSON = results;
 		        writeRightUserToDom(rightUserJSON);
 		});
-	}
+	};
 
 	const loadRightUserJSON = () => {
 		let rightUserInput = $("#right-user").val();
@@ -134,9 +134,9 @@ $(document).ready(() => {
 	    				<h3 id="rightUserPoints">${rightUserJSON.points.total}</h3>
 	    				<img class="user-image" src="${rightUserJSON.gravatar_url}" alt="right user image">
 	    				</div>
-	    				`
+	    				`;
 	    $("#user-container-right").html(userString);
-	}
+	};
 
 	const loadBothUsers = () => {
 		Promise.all([loadLeftUserJSON(), loadRightUserJSON()])
@@ -146,6 +146,6 @@ $(document).ready(() => {
 				writeLeftUserToDom(results[0]);
 				writeRightUserToDom(results[1]);
 			});
-	}
+	};
 
 });
