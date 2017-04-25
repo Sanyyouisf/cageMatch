@@ -5,7 +5,7 @@
 <hr>
 
 ## Summary
-Compared Treehouse user data in a mock arcade game. Used **Promises** from online **JSON** files to asynchronously write and filter data on the **DOM**. **Bootstrap**, **jQuery** and **Grunt** used throughout. Truetype fonts and custom color scheme from background (Theme borrowed from Street Fighter II arcade game).
+Compared Treehouse user data in a mock arcade game. Used **Promises** from online **JSON** files to asynchronously write and filter data on the **DOM**. **Bootstrap**, **jQuery** and **Grunt** used throughout. Truetype fonts and custom color scheme from background (Theme borrowed from Street Fighter II arcade game). Everything possible is in **ES6**.
 
 <hr>
 
