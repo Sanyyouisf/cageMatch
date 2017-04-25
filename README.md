@@ -1,6 +1,6 @@
 # NSS Cage Match
 
-![Splashpage]()
+![Splashpage](https://raw.githubusercontent.com/mitchellblom/cageMatch/cage/classfighter1.png)
 
 <hr>
 
@@ -22,7 +22,7 @@ Compared Treehouse user data in a mock arcade game. Used **Promises** from onlin
 1. In the inputs you type in a treehouse username and then hit the button
 1. Once the button is hit your code should
  - Make ajax requests to treehouse and return the profile
- - Example url = https://teamtreehouse.com/krissycaron.json
+ - Example url = https://teamtreehouse.com/mitchellblom.json
  - Use Promise.all to return the two profiles at the same time
  - Display the profile pictures of the two profiles
  - Display the profile picture for each of the two profiles
