@@ -28,7 +28,7 @@ $(document).ready(() => {
 
 	const beginTheFight = () => {
 		if (leftUserJSON.points.total > rightUserJSON.points.total) {
-			alert(leftUserJSON.name + " beat " + rightUserJSON.name + "!");
+			alert(leftUserJSON.name + " obliterated " + rightUserJSON.name + " with a huge right hook!");
 			$("#user-container-right").html("");
 			leftUserJSON.badges.forEach((each) => {
 				$("#winner-badges").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
@@ -40,7 +40,7 @@ $(document).ready(() => {
 				  });
 			});
 		} else if (leftUserJSON.points.total < rightUserJSON.points.total) {
-			alert(rightUserJSON.name + " beat " + leftUserJSON.name + "!");
+			alert(rightUserJSON.name + " knocked out " + leftUserJSON.name + " with a wicked side kick!");
 			$("#user-container-left").html("");
 			rightUserJSON.badges.forEach((each) => {
 				$("#winner-badges").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
@@ -48,11 +48,11 @@ $(document).ready(() => {
 				    width: ["toggle"],
 				    height: ["toggle"],
 				  }, 2000, "linear", function() {
-				    $(this).after(console.log("animation complete"));
+				    $(this).after();
 				  });
 			});
 		} else if (leftUserJSON.points.total == rightUserJSON.points.total) {
-			alert(leftUserJSON.name + " and " + rightUserJSON.name + " tied!");
+			alert(leftUserJSON.name + " and " + rightUserJSON.name + " are locked in a bitter struggle of self-identity!");
 		} else {
 			alert("Have you defined both users?");
 		}
