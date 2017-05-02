@@ -1,6 +1,6 @@
 body {
 	background-image: url("https://s-media-cache-ak0.pinimg.com/originals/52/60/db/5260dbc1bad2db6fc87c7af1e6da98ef.jpg");
-	padding: 2%;
+	padding: 0% 2%;
 }
 
 @font-face {
@@ -21,7 +21,11 @@ h2 {
 	font-size: 2em;
 }
 
-#button-div {
+.winner-badge-container {
+	min-height: 45px;
+}
+
+.primary-button-container {
 	width: 400px;
 	margin: 0 auto;
 }
@@ -61,8 +65,8 @@ h2 {
 }
 
 .winner-badge {
-	height: 30px;
-	width: 30px;
+	height: 20px;
+	width: 20px;
 }
 
 .secret {

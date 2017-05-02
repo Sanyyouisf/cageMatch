@@ -16,7 +16,7 @@ $(document).ready(() => {
 
 	$("#fight-button").click(() => {
 		beginTheFight();
-	});
+	}); 
 
 	const resetAll = () => {
 		$("#user-container-right").html("");
@@ -36,7 +36,7 @@ $(document).ready(() => {
 				    width: ["toggle"],
 				    height: ["toggle"],
 				  }, 2000, "linear", function() {
-				    $(this).after(console.log("animation complete"));
+				    $(this).after();
 				  });
 			});
 		} else if (leftUserJSON.points.total < rightUserJSON.points.total) {
