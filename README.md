@@ -1,19 +1,27 @@
-# NSS Cage Match
+# NSS Cage Match Exercise
 
-![Splashpage](https://raw.githubusercontent.com/mitchellblom/cageMatch/cage/classfighter1.png)
+![Splashpage](https://raw.githubusercontent.com/mitchellblom/cageMatch/cage/images/classfighter1.png)
 
 <hr>
 
 ## Summary
-Compared Treehouse user data in a mock arcade game. Used **Promises** from online **JSON** files to asynchronously write and filter data on the **DOM**. **Bootstrap**, **jQuery** and **Grunt** used throughout. Truetype fonts and custom color scheme from background (Theme borrowed from Street Fighter II arcade game). Everything possible is in **ES6**.
+Compared Treehouse user data in a mock arcade game. Scraped online **JSON** files using **AJAX Promises** to asynchronously write and filter data on the **DOM**. **Bootstrap**, **jQuery** and **Grunt** used throughout. Truetype fonts and custom color scheme from background (Theme borrowed from Street Fighter II arcade game). Everything possible is in **ES6**.
 
 <hr>
 
-## To Access Necessary Libaries:
+## To Access Necessary Libaries For Local Testing:
  - Pull down project
  - cd into lib
  - Run command "bower install"
  - Run command "npm install"
+
+<hr>
+
+## To Test:
+ - Beneath Load User A button are some invisible user names to copy/paste from. Otherwise 'mitchellblom' and 'krissycaron' will do the trick.
+ - Load users individually by using the buttons beside the input fields, or load both simultaneously with the center button Load Both.
+ - Click Fight to duel the users.
+ - Reset with the labelled button.
 
 <hr>
 
@@ -31,13 +39,5 @@ Compared Treehouse user data in a mock arcade game. Used **Promises** from onlin
  - Clearly display who the winner is
  - Display the winners badges
  - Use jquery .animate method to apply animation to the images
-
-Your code should:
-
- - Not have any grunt errors
- - Use es6 syntax - let, const, fat arrows
- - Show an user friendly message if no data comes back from treehouse - ie you type in a username that doesn't exist (hint: use .catch on your promise.all to catch the error from treehouse)
- - Have cool animations
- - Not be styled unless you have 100% functionality complete
 
 <hr>

@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
-	let leftUserJSON;
-	let rightUserJSON;
+	let leftUserJSON = "";
+	let rightUserJSON = "";
 
 // PRIMARY BUTTON EVENTS
 
@@ -15,13 +15,19 @@ $(document).ready(() => {
 	});
 
 	$("#fight-button").click(() => {
-		beginTheFight();
+		if (leftUserJSON == "" || rightUserJSON == ""){
+			alert("Please make sure you've loaded both users!");
+		} else {
+			beginTheFight();
+		}
 	}); 
 
 	const resetAll = () => {
-		$("#user-container-right").html("");
-		$("#user-container-left").html("");
+		$("#user-container-right").html("").animate({opacity: 1}, 0);
+		$("#user-container-left").html("").animate({opacity: 1}, 0);
 		$("#winner-badges").html("");
+		leftUserJSON = "";
+		rightUserJSON = "";
 	};
 
 // FIGHT SEQUENCE
@@ -29,27 +35,29 @@ $(document).ready(() => {
 	const beginTheFight = () => {
 		if (leftUserJSON.points.total > rightUserJSON.points.total) {
 			alert(leftUserJSON.name + " obliterated " + rightUserJSON.name + " with a huge right hook!");
-			$("#user-container-right").html("");
+			$("#user-container-left").animate({left: '245px'}, 1000);
+			$("#user-container-right").animate({opacity: 0}, 0);
 			leftUserJSON.badges.forEach((each) => {
 				$("#winner-badges").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
 				.animate({
-				    width: ["toggle"],
-				    height: ["toggle"],
-				  }, 2000, "linear", function() {
-				    $(this).after();
-				  });
+					width: ["toggle"],
+					height: ["toggle"],
+					}, 2000, "linear", function() {
+					$(this).after();
+				});
 			});
 		} else if (leftUserJSON.points.total < rightUserJSON.points.total) {
 			alert(rightUserJSON.name + " knocked out " + leftUserJSON.name + " with a wicked side kick!");
-			$("#user-container-left").html("");
+			$("#user-container-right").animate({right: '315px'}, 1000);
+			$("#user-container-left").animate({opacity: 0}, 0);
 			rightUserJSON.badges.forEach((each) => {
 				$("#winner-badges").append(`<img class="winner-badge" src="${each.icon_url}" alt="winner-single-badge">`)
 				.animate({
 				    width: ["toggle"],
 				    height: ["toggle"],
-				  }, 2000, "linear", function() {
+				  	}, 2000, "linear", function() {
 				    $(this).after();
-				  });
+				});
 			});
 		} else if (leftUserJSON.points.total == rightUserJSON.points.total) {
 			alert(leftUserJSON.name + " and " + rightUserJSON.name + " are locked in a bitter struggle of self-identity!");
@@ -66,9 +74,9 @@ $(document).ready(() => {
 
 	const onLeftSubmit = () => {
 		loadLeftUserJSON().then((results) => {
-		        leftUserJSON = results;
-		        writeLeftUserToDom(leftUserJSON);
-		    });
+			leftUserJSON = results;
+			writeLeftUserToDom(leftUserJSON);
+		});
 	};
 
 	const loadLeftUserJSON = () => {
@@ -95,19 +103,19 @@ $(document).ready(() => {
 	   					<img class="user-image" src="${leftUserJSON.gravatar_url}" alt="left user image">
 	   					</div>
 	   					`;
-	    $("#user-container-left").html(userString);
+	    $("#user-container-left").html(userString).fadeIn().animate({left: '10px'}, 1000);
 	};
 
 // RIGHT USER FUNCTIONS
 
 	$("#right-user-button").click(() => {
-			onRightSubmit();
-		});
+		onRightSubmit();
+	});
 
 	const onRightSubmit = () => {
 		loadRightUserJSON().then((results) => {
-		        rightUserJSON = results;
-		        writeRightUserToDom(rightUserJSON);
+			rightUserJSON = results;
+			writeRightUserToDom(rightUserJSON);
 		});
 	};
 
@@ -133,19 +141,18 @@ $(document).ready(() => {
 	    				<h3>Total Points:</h3>
 	    				<h2 id="rightUserPoints">${rightUserJSON.points.total}</h2>
 	    				<img class="user-image" src="${rightUserJSON.gravatar_url}" alt="right user image">
-	    				</div>
-	    				`;
-	    $("#user-container-right").html(userString);
+	    				</div>`;
+	    $("#user-container-right").html(userString).fadeIn().animate({right: '10px'}, 1000);
 	};
 
 	const loadBothUsers = () => {
 		Promise.all([loadLeftUserJSON(), loadRightUserJSON()])
-			.then(function(results){
-				leftUserJSON = results[0];
-				rightUserJSON = results[1];
-				writeLeftUserToDom(results[0]);
-				writeRightUserToDom(results[1]);
-			});
+		.then(function(results){
+			leftUserJSON = results[0];
+			rightUserJSON = results[1];
+			writeLeftUserToDom(results[0]);
+			writeRightUserToDom(results[1]);
+		});
 	};
 
 });
