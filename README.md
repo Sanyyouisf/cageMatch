@@ -1,15 +1,15 @@
-# NSS Cage Match
+# NSS Cage Match Exercise
 
-![Splashpage](https://raw.githubusercontent.com/mitchellblom/cageMatch/cage/classfighter1.png)
+![Splashpage](https://raw.githubusercontent.com/mitchellblom/cageMatch/cage/images/classfighter1.png)
 
 <hr>
 
 ## Summary
-Compared Treehouse user data in a mock arcade game. Used **Promises** from online **JSON** files to asynchronously write and filter data on the **DOM**. **Bootstrap**, **jQuery** and **Grunt** used throughout. Truetype fonts and custom color scheme from background (Theme borrowed from Street Fighter II arcade game). Everything possible is in **ES6**.
+Compared Treehouse user data in a mock arcade game. Scraped online **JSON** files using **AJAX Promises** to asynchronously write and filter data on the **DOM**. **Bootstrap**, **jQuery** and **Grunt** used throughout. Truetype fonts and custom color scheme from background (Theme borrowed from Street Fighter II arcade game). Everything possible is in **ES6**.
 
 <hr>
 
-## To Access Necessary Libaries:
+## To Access Necessary Libaries For Local Testing:
  - Pull down project
  - cd into lib
  - Run command "bower install"
