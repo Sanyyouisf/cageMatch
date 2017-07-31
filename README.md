@@ -17,6 +17,14 @@ Compared Treehouse user data in a mock arcade game. Used **Promises** from onlin
 
 <hr>
 
+## To Test:
+ - Beneath Load User A button are some invisible user names to copy/paste from. Otherwise 'mitchellblom' and 'krissycaron' will do the trick.
+ - Load users individually by using the buttons beside the input fields, or load both simultaneously with the center button Load Both.
+ - Click Fight to duel the users.
+ - Reset with the labelled button.
+
+<hr>
+
 ## Requirements
 1. Your site should have two inputs and a button
 1. In the inputs you type in a treehouse username and then hit the button
@@ -31,13 +39,5 @@ Compared Treehouse user data in a mock arcade game. Used **Promises** from onlin
  - Clearly display who the winner is
  - Display the winners badges
  - Use jquery .animate method to apply animation to the images
-
-Your code should:
-
- - Not have any grunt errors
- - Use es6 syntax - let, const, fat arrows
- - Show an user friendly message if no data comes back from treehouse - ie you type in a username that doesn't exist (hint: use .catch on your promise.all to catch the error from treehouse)
- - Have cool animations
- - Not be styled unless you have 100% functionality complete
 
 <hr>
